@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="css/style.css" rel="stylesheet" />
+    <style>
+      .grid-3col {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr 1fr;
+        gap: 10px;
+      }
+      .col {
+        background-color: white;
+      }
+      h1 {
+        font-size: 100px;
+        margin: 0;
+        color: lightgreen;
+      }
+      h2 {
+        font-size: 38px;
+        margin: 0;
+        font-variant: small-caps;
+        color: dimgray;
+        margin-bottom: 38px;
+      }
+      h3 {
+        font-size: 18px;
+        color: darkgrey;
+        font-variant: small-caps;
+        font-weight: normal;
+        margin-bottom: 0;
+      }
+      .date-rate {
+        color: darkgray;
+      }
+      p {
+        font-size: 18px;
+        margin: 0;
+      }
+      .col-content {
+        background-color: white;
+      }
+      .list-content {
+        margin-top: 100px;
+      }
+      .thumbnail {
+        float: left;
+        margin-right: 20px;
+      }
+      .my-notes {
+        color: blueviolet;
+        margin-bottom: 0px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-3col">
+      <div class="col col-1"></div>
+      <div class="col col-content">
+
+        <h1>james.r</h1>
+        <img class="thumbnail" src="./images/<%= pic %>" alt="<%= pic %>" />
+        <h2><%= title %></h2>
+        <h3>ISBN: <%= isbn %></h3>
+        <h3>Date Read: <%= date %></h3>
+        <h3>How Strongly I Reccomend It: <%= rate %>/10</h3>
+        <h4>(<a href="/">See my list of 360+ books</a>, for more.)</h4>
+        <h4>
+          Go to
+          <a href="https://www.amazon.com/s?k=<%= isbn %>&tag=sivers-20"
+            >Amazon</a
+          >
+          page for details.
+        </h4>
+        <p><%= brief %></p>
+        <h3 class="my-notes">My Notes</h3>
+        <p><%= full %></p>
+        
+      </div>
+
+
+      <div class="col col-3"></div>
+    </div>
+  </body>
+</html>

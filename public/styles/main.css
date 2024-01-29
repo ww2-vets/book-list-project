@@ -1,0 +1,120 @@
+body{
+  padding: 0;
+  margin: 0;
+}
+.grid-3col {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  gap: 20px;
+}
+.col {
+  background-color: white;
+}
+.col-1, .col-3{
+  background-color: lightsteelblue;
+}
+h1 {
+  font-size: 170px;
+  padding: 0;
+  margin: 0;
+  color: lightslategray;
+
+}
+h2 {
+  font-size: 35px;
+  padding: 0;
+  margin: 0;
+  font-variant: small-caps;
+  color: lightslategray;
+  margin-bottom: 30px;
+}
+p {
+  font-size: 18px;
+}
+.menu-box {
+  width: 100%;
+}
+.list-content {
+  margin-top: 70px;
+}
+/* .thumbnail {
+  float: left;
+  margin-right: 20px;
+} */
+h3 {
+  font-size: 28px;
+  color: darkmagenta;
+  font-variant: small-caps;
+}
+h3 > a {
+  color: lightslategray;
+}
+.date-rate {
+  color: darkgray;
+}
+
+.menu {
+  background-color: lightslategray;
+  color: white;
+  text-align: right;
+  padding: 4px;
+  margin: 0;
+}
+.menu a {
+  background-color: white;
+  text-decoration: none;
+  padding-right: 7px;
+  padding-left: 7px;
+  border-radius: 3px;
+  color: lightslategray;
+  margin: 2px;
+}
+
+.active {
+  background-color: gray;
+  color: white;
+}
+
+/* form styles */
+
+* {
+  box-sizing: border-box;
+}
+.container {
+  /* max-width: 500px; */
+  margin: 60px auto;
+}
+.container h2 {
+  text-align: center;
+  color: lightslategrey
+}
+form {
+  background-color: white;
+  padding: 30px;
+}
+form .input-group {
+  margin-bottom: 15px;
+}
+form label {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+form input {
+  padding: 12px 20px;
+  width: 100%;
+  border: 1px solid #ccc;
+}
+legend {
+  margin-bottom: 10px;
+}
+.submit-btn {
+  width: 100%;
+  border: none;
+  background: rgb(37, 83, 3);
+  font-size: 18px;
+  color: white;
+  border-radius: 7px;
+  padding: 10px;
+  text-align: center;
+}

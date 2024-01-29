@@ -1,0 +1,20 @@
+<%- include("partials/header.ejs") %>
+
+<img class="thumbnail" src="./images/<%= pic %>" alt="<%= pic %>" />
+<h2><%= title %></h2>
+<h3>ISBN: <%= isbn %></h3>
+<h3>Date Read: <%= date %></h3>
+<h3>How Strongly I Reccomend It: <%= rate %>/10</h3>
+<h4>(<a href="/">See my list of 360+ books</a>, for more.)</h4>
+<h4>
+  Go to
+  <a href="https://www.amazon.com/s?k=<%= isbn %>&tag=sivers-20"
+    >Amazon</a
+  >
+  page for details.
+</h4>
+<p><%= brief %></p>
+<h3 class="my-notes">My Notes</h3>
+<p><%= full %></p>
+
+<%- include("partials/footer.ejs") %>

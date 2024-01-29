@@ -1,0 +1,144 @@
+<%- include("partials/header.ejs") %>
+
+<div class="container">
+
+  <%= locals.error ? error : ''%>
+
+  <h2>New Note</h2>
+
+  <form action="/submit" method="POST" enctype="multipart/form-data">
+
+  <!-- form with action -->
+  <!-- <form action="/submit" id="form" method="POST"> -->
+
+  <!-- form without action    -->
+  <!-- <form id="form"> -->
+    
+    <!-- NOTE TITLE -->
+    <div class="input-group">
+      <label for="note_title">Note Title:</label>
+      <input name="note_title" id="note_title" placeholder="Enter note title" />
+    </div>
+
+    <!-- READ DATE -->
+    <fieldset>
+      <legend>Pick the read date</legend>
+      <label for="my-date-picker"
+        >Date:
+        <input
+          id="my-date-picker"
+          type="date"
+          name="read_date"
+          format="yyyy-mm-dd"
+        />
+      </label>
+    </fieldset>
+
+    <!-- RECCOMENDATION -->
+    <div class="input-group">
+      <label for="recom_rate">Recommend:</label>
+      <input
+        name="recom_rate"
+        id="recom_rate"
+        placeholder="Enter Recommended Rate 1-10"
+      />
+    </div>
+
+    <!-- ISBN CODE -->
+    <div class="input-group">
+      <label for="bk_code">ISBN Code:</label>
+      <input name="bk_code" id="bk_code" placeholder="Enter Code" />
+    </div>
+
+    <!-- pick a file  -->
+    <div class="input-group">
+      <!-- <img id="output" height="100" style="float: right" /> -->
+      <label for="file">Pick a book cover:</label>
+      <input id="file" name="file" type="file" accept="image/*" style="width:max-content;"
+      onchange="loadFile(event)" required>
+      <img id="thumbnail" height="100" />
+    </div>
+
+    <!-- File Name -->
+    <div class="input-group">
+      <label for="file_name">File Name:</label>
+      <input
+        name="file_name"
+        id="file_name"
+        placeholder="Enter File Name w extension"
+      />
+    </div>
+
+    <!-- BRIEF NOTE -->
+    <div class="input-group">
+      <label for="brief_note">Brief Note</label>
+      <textarea
+        name="brief_note"
+        id="brief_note"
+        cols="30"
+        rows="10"
+      ></textarea>
+    </div>
+
+    <!-- FULL NOTE -->
+    <div class="input-group">
+      <label for="brief_note">Full Note</label>
+      <textarea name="full_note" id="full_note" cols="70" rows="10"></textarea>
+    </div>
+
+    <button class="submit-btn" type="submit" style="background-color: lightslategray; width: 100%;">
+      Submit
+    </button>
+  </form>
+</div>
+
+<!-- set thumbnail -->
+<script>
+  var loadFile = function (e) {
+    var output = document.getElementById("thumbnail");
+    output.src = URL.createObjectURL(e.target.files[0]); // files from event object
+    output.onload = function () {
+      URL.revokeObjectURL(output.src); // free memory
+    };
+  };
+</script>
+
+<!-- submit form with formdata  -->
+<script>
+  // const form = document.getElementById("form");
+
+  // form.addEventListener("submit", submitForm);
+
+  // btn.addEventListener("click", submitForm);
+
+  function submitForm(e) {
+    e.preventDefault();
+
+   // get input elements values
+   const note_title = document.getElementById("note_title");
+    const read_date = document.getElementById("read_date");
+    const recom_rate = document.getElementById("recom_rate");
+    const bk_code = document.getElementById("bk_code");
+    const file_name = document.getElementById("file_name");
+    const brief_note = document.getElementById("brief_note");
+    const full_note = document.getElementById("full_note");
+
+
+    const formData = new FormData();
+    formData.append("name", name.value);
+    for(let i =0; i < files.files.length; i++) {
+            formData.append("files", files.files[i]);
+    }
+    fetch("http://localhost:3000/submit", {
+        method: 'POST',
+        body: formData,
+        headers: {
+          "Content-Type": "multipart/form-data"
+        }
+    })
+        .then((res) => console.log(res))
+        .catch((err) => ("Error occured", err));
+}
+</script>
+
+<%- include("partials/footer.ejs") %>

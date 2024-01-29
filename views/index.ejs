@@ -1,0 +1,35 @@
+<%- include("partials/header.ejs") %>
+
+<!-- dynamic content list -->
+<% notes.forEach(note => {%>
+
+<div class="list-content">
+  <a href="/note?id=<%= note.id %>">
+    <img
+      class="thumbnail"
+      src="./images/<%= note.file_name  %>"
+      alt="<%= note.file_name  %>"
+  /></a>
+
+  <h3><a href="/note?id=<%= note.id %>"><%= note.note_title %></a></h3>
+  <p class="date-rate">
+    Date read: <%= note.read_date %>. How strongly I recommend it: <%=
+    note.recom_rate %>/10
+  </p>
+  <p class="brief"><%= note.brief_note %></p>
+
+  <p class="foot">
+    <span><a href="/note?id=<%= note.id %>">Read my notes</a></span
+    >, or go to the
+    <span
+      ><a href="https://www.amazon.com/s?k=<%= note.bk_code %>&tag=sivers-20"
+        >Amazon</a
+      ></span
+    >
+    page for details and reviews.
+  </p>
+</div>
+
+<% }); %> 
+
+<%- include("partials/footer.ejs") %>
