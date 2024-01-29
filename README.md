@@ -1,5 +1,5 @@
 # book-list-project
-Capstone Project Books/bk-note-db id the back up of the postgress db. Just import and start adding book notes.
+Capstone Project Books/**bk-note-db** is the back up of the postgress db. Just import into pgadmin and start adding book notes.
 The project is far from finished.
 The nav bar is not fully buttoned down.
 I have yet to add delete note. This should be easy.
